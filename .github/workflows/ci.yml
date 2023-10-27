@@ -1,0 +1,39 @@
+name: releaser
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+permissions:
+  contents: write
+  # packages: write
+  # issues: write
+
+jobs:
+  release-tuf-client:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get Go version
+        uses: arnested/go-version-action@v1
+        id: go-version
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ steps.go-version.outputs.minimal }}
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          distribution: goreleaser
+          version: latest
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

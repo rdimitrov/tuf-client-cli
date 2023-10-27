@@ -5,7 +5,7 @@
 # Feel free to remove those if you don't want/need to use them.
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 # vim: set ts=2 sw=2 tw=0 fo=cnqoj
-
+project_name: tuf-client-cli
 before:
   hooks:
     # You may remove this if you don't use go modules.
@@ -20,6 +20,9 @@ builds:
       - linux
       - windows
       - darwin
+    goarch:
+      - amd64
+      - arm64
     main: ./cmd/tuf-client
 archives:
   - format: tar.gz
@@ -35,10 +38,17 @@ archives:
     format_overrides:
       - goos: windows
         format: zip
-
+source:
+  enabled: true
 changelog:
   sort: asc
-  filters:
-    exclude:
-      - "^docs:"
-      - "^test:"
+  use: github
+sboms:
+  - artifacts: archive
+release:
+  # If set to auto, will mark the release as not ready for production
+  # in case there is an indicator for this in the tag e.g. v1.0.0-rc1
+  prerelease: auto
+  github:
+    owner: rdimitrov
+    name: tuf-client-cli
