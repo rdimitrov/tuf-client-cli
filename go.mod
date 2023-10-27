@@ -1,6 +1,6 @@
 module github.com/rdimitrov/tuf-client-cli
 
-go 1.21.1
+go 1.21
 
 require (
 	github.com/go-logr/stdr v1.2.2
