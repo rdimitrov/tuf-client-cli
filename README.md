@@ -58,3 +58,5 @@ $ tuf-client get --url https://jku.github.io/tuf-demo/metadata --turl https://jk
 # Reset your local environment
 $ tuf-client reset
 ```
+
+----------------------------
