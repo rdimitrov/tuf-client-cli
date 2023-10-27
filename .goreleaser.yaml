@@ -38,6 +38,17 @@ archives:
     format_overrides:
       - goos: windows
         format: zip
+brews:
+  - homepage: 'https://github.com/rdimitrov/tuf-client-cli'
+    description: 'TUF client CLI written in Go based on the rdimitrov/go-tuf-metadata library.'
+    folder: Formula
+    commit_author:
+      name: 'Radoslav Dimitrov'
+      email: rdimitrov@gmail.com
+    repository:
+      owner: rdimitrov
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
 source:
   enabled: true
 changelog:
