@@ -5,7 +5,7 @@
 # Feel free to remove those if you don't want/need to use them.
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 # vim: set ts=2 sw=2 tw=0 fo=cnqoj
-project_name: tuf-client-cli
+project_name: tuf-client
 before:
   hooks:
     # You may remove this if you don't use go modules.
@@ -26,7 +26,7 @@ builds:
     main: ./cmd/tuf-client
 # This section defines how to release binaries and archives.
 archives:
-  - format: tar.gz # binary # issue where goreleaser skips including the sboms in case of binary format
+  - format: tar.gz # we can use binary, but it seems there's an issue where goreleaser skips the sboms
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}" # "{{ .Binary }}-{{ .Os }}-{{ .Arch }}"
     format_overrides:
       - goos: windows
@@ -44,7 +44,7 @@ brews:
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
     test: |
-      system "#{bin}/tuf-client-cli --help"
+      system "#{bin}/tuf-client --help"
 source:
   enabled: true
 changelog:

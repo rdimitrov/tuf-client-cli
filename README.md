@@ -11,7 +11,7 @@ Download the latest release from release page and install it.
 For homebrew users, you can install it via:
 
 ```bash
-brew install rdimitrov/tap/tuf-client-cli
+brew install rdimitrov/tap/tuf-client
 ```
 
 ## Overview
