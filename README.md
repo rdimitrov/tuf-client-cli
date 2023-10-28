@@ -2,6 +2,18 @@
 
 ----------------------------
 
+## Installation
+
+----------------------------
+
+Download the latest release from release page and install it.
+
+For homebrew users, you can install it via:
+
+```bash
+brew install rdimitrov/tap/tuf-client-cli
+```
+
 ## Overview
 
 ----------------------------
@@ -60,3 +72,10 @@ $ tuf-client reset
 ```
 
 ----------------------------
+
+## SLSA Level 3 Provenance
+
+----------------------------
+
+The CLI provides a SLSA Level 3 provenance by generating a non-forgeable attestation to the artifacts' digests
+using the identity of the GitHub workflow.

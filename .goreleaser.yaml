@@ -12,7 +12,7 @@ before:
     - go mod tidy
     # you may remove this if you don't need go generate
     - go generate ./...
-
+# This section defines the build matrix
 builds:
   - env:
       - CGO_ENABLED=0
@@ -24,12 +24,14 @@ builds:
       - amd64
       - arm64
     main: ./cmd/tuf-client
+# This section defines how to release binaries and archives.
 archives:
   - format: tar.gz # binary # issue where goreleaser skips including the sboms in case of binary format
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}" # "{{ .Binary }}-{{ .Os }}-{{ .Arch }}"
     format_overrides:
       - goos: windows
         format: zip
+# This section defines how to release to homebrew.
 brews:
   - homepage: 'https://github.com/rdimitrov/tuf-client-cli'
     description: 'TUF client CLI written in Go based on the rdimitrov/go-tuf-metadata library.'
