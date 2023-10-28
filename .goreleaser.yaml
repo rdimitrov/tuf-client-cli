@@ -57,3 +57,12 @@ release:
   github:
     owner: rdimitrov
     name: tuf-client-cli
+signs:
+  - cmd: cosign
+    args:
+      - "sign-blob"
+      - "--output-signature=${signature}"
+      - "${artifact}"
+      - "--yes" # needed on cosign 2.0.0+
+    artifacts: archive
+    output: true
