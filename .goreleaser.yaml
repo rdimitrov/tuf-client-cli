@@ -43,6 +43,8 @@ brews:
       owner: rdimitrov
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    test: |
+      system "#{bin}/tuf-client-cli --help"
 source:
   enabled: true
 changelog:
