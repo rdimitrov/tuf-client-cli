@@ -1,10 +1,9 @@
 name: releaser
 
 on:
-  push:
-    # run only against tags
-    tags:
-      - "v*"
+  workflow_dispatch:
+  release:
+    types: [created]
 
 permissions:
   contents: write
