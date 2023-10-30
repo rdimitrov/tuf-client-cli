@@ -79,3 +79,6 @@ $ tuf-client reset
 
 The CLI provides a SLSA Level 3 provenance by generating a non-forgeable attestation to the artifacts' digests
 using the identity of the GitHub workflow.
+
+----------------------------
+
