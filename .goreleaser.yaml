@@ -48,7 +48,7 @@ brews:
 # This section defines how to release to winget.
 winget:
   - name: tuf-client
-    publisher: Radoslav Dimitrov
+    publisher: rdimitrov
     license: BSD-2 Clause
     license_url: "https://github.com/rdimitrov/tuf-client-cli/blob/master/LICENSE"
     copyright: Radoslav Dimitrov
