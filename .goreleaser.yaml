@@ -70,7 +70,7 @@ winget:
       owner: rdimitrov
       name: winget-pkgs
       branch: "tuf-client-{{.Version}}"
-      token: "{{ .Env.WINGET_GTIHUB_TOKEN }}"
+      token: "{{ .Env.WINGET_GITHUB_TOKEN }}"
       pull_request:
         enabled: true
         draft: true
