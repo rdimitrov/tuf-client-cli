@@ -37,7 +37,7 @@ brews:
     description: 'TUF client CLI written in Go based on the rdimitrov/go-tuf-metadata library.'
     folder: Formula
     commit_author:
-      name: 'Radoslav Dimitrov'
+      name: rdimitrov
       email: rdimitrov@gmail.com
     repository:
       owner: rdimitrov
@@ -45,6 +45,39 @@ brews:
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
     test: |
       system "#{bin}/tuf-client --help"
+# This section defines how to release to winget.
+winget:
+  - name: tuf-client
+    publisher: Radoslav Dimitrov
+    license: BSD-2 Clause
+    license_url: "https://github.com/rdimitrov/tuf-client-cli/blob/master/LICENSE"
+    copyright: Radoslav Dimitrov
+    homepage: https://github.com/rdimitrov/tuf-client-cli
+    short_description: 'TUF client CLI written in Go based on the rdimitrov/go-tuf-metadata library.'
+    publisher_support_url: "https://github.com/rdimitrov/tuf-client-cli/issues/new"
+    package_identifier: "rdimitrov.tuf-client"
+    url_template: "https://github.com/rdimitrov/tuf-client-cli/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    skip_upload: auto
+    release_notes: "{{.Changelog}}"
+    tags:
+      - golang
+      - cli
+    commit_author:
+      name: rdimitrov
+      email: rdimitrow@gmail.com
+    goamd64: v1
+    repository:
+      owner: rdimitrov
+      name: winget-pkgs
+      branch: "tuf-client-{{.Version}}"
+      token: "{{ .Env.WINGET_GTIHUB_TOKEN }}"
+      pull_request:
+        enabled: true
+        draft: true
+        base:
+          owner: microsoft
+          name: winget-pkgs
+          branch: master
 source:
   enabled: true
 changelog:
