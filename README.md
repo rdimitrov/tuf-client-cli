@@ -1,6 +1,12 @@
 # tuf-client CLI
 
 ----------------------------
+## Notice
+
+This repository will be deprecated in favour of https://github.com/kairoaraujo/tufie. 
+Tufie has the same functionality but also expands it by supporting config files, context of repository and many more.
+
+----------------------------
 
 ## Installation
 
