@@ -92,12 +92,17 @@ release:
   github:
     owner: rdimitrov
     name: tuf-client-cli
+# This section defines how and which artifacts we want to sign for the release.
 signs:
   - cmd: cosign
     args:
       - "sign-blob"
       - "--output-signature=${signature}"
+      - "--output-certificate=${certificate}"
       - "${artifact}"
       - "--yes" # needed on cosign 2.0.0+
     artifacts: archive
     output: true
+    # It looks like this may default to empty-string, and we need to set it to upload
+    # the sigstore certs
+    certificate: '{{ trimsuffix (trimsuffix .Env.artifact ".zip") ".tar.gz" }}.pem'
